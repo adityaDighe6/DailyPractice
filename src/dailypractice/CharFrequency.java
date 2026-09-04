@@ -5,22 +5,40 @@ import java.util.Scanner;
 public class CharFrequency {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Enter a String : ");
-		String str = sc.nextLine();
+		String str;
 		
-		System.out.println("Enter a character : ");
-		char ch = sc.next().charAt(0);
+		System.out.println("Enter the string : ");
+		str = sc.nextLine();
+		
+		String lower = str.toLowerCase();
+		System.out.println("Entered string is converted to lowercase : "+lower);
+		
+		char ch;
+		
+		System.out.println("Enter the character for couting frequency : ");
+		ch = sc.next().charAt(0);
+		
+		TestCharFrequency test = new TestCharFrequency();
+		int countFrequency = test.testCharFrequency(lower, ch);
+		
+		System.out.println("Frequency of character "+ ch +" in string is : "+countFrequency);
+		
+	}
+}
+
+class TestCharFrequency {
+	public int testCharFrequency(String lower, char ch) {
 		
 		int count = 0;
-		for(int i = 0; i<str.length(); i++) {
-			if(str.charAt(i) == ch) {
+		
+		for(int i = 0; i<lower.length(); i++) {
+			if(lower.charAt(i)==ch) {
 				count++;
 			}
 		}
-		System.out.println("Frequency of '" + ch + "' = " + count);
+		
+		return count;
 	}
-
 }
