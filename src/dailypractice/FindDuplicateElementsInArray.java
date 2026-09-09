@@ -1,3 +1,5 @@
+//09-09-2026 : Find duplicate elements in array.
+
 package dailypractice;
 
 import java.util.Arrays;
