@@ -18,6 +18,10 @@ public class FindDuplicateElementsInArray {
 class TestFindDuplicateElementsInArray {
 	public void findDuplicateElementsInArray(int arr[]) {
 		
+		if(arr == null || arr.length == 0) {
+			System.out.println("Empty array");
+		}
+		
 		Arrays.sort(arr);
 		
 		for(int i = 0; i<arr.length-1; i++) {
