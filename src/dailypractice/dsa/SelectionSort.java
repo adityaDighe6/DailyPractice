@@ -8,39 +8,35 @@ public class SelectionSort {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int arr[] = {64, 25, 12, 22, 11};
+		int arr[] = {6,5,2,8,9,4};
+		int size = arr.length;
 		
-		System.out.println("Original Array : "+Arrays.toString(arr));
+		System.out.println("Before sorting : "+Arrays.toString(arr));
 		
 		TestSelectionSort test = new TestSelectionSort();
-		test.selectionSort(arr);
+		test.selectionSort(arr,size);
 		
-		System.out.println("Sorted Array : "+Arrays.toString(arr));
+		System.out.println("After sorting : "+Arrays.toString(arr));
 	}
 
 }
 class TestSelectionSort {
-	public void selectionSort(int arr[]) {
+	public void selectionSort(int arr[], int size) {
+		int temp = 0;
 		
-		int size = arr.length;
-
-		// One by one move the boundary of the unsorted subarray
-		for (int step = 0; step < size - 1; step++) {
-        
-			int minIdx = step;
-
-			// Find the minimum element in the remaining unsorted array
-			for (int i = step + 1; i < size; i++) {
-            
-				if (arr[i] < arr[minIdx]) {
-					minIdx = i;
+		for(int i = 0; i<size-1; i++) {
+			
+			int minIdx = i;
+			
+			for(int j = i+1; j<size; j++) {
+				if(arr[minIdx] > arr[j]) {
+					minIdx = j;
 				}
 			}
-
-			// Swap the found minimum element with the first unsorted element
-			int temp = arr[step];
-			arr[step] = arr[minIdx];
-			arr[minIdx] = temp;
+			temp = arr[minIdx];
+			arr[minIdx] = arr[i];
+			arr[i] = temp;
 		}
+		return;
     }
 }
