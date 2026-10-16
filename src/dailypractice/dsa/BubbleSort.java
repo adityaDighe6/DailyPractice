@@ -1,47 +1,33 @@
-//29-09-206 : Bubble Sort : Time complexity O(n2) 
+//16-10-206 : Bubble Sort : Simplified bubble sort
 
 package dailypractice.dsa;
+
+import java.util.Arrays;
 
 public class BubbleSort {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int nums[] = {6,5,2,8,9,4};
+		int arr[] = {7,8,3,1,2};
 		
 		TestBubbleSort test = new TestBubbleSort();
-		test.bubbleSort(nums);
+		test.bubbleSort(arr);
 	}
 
 }
 class TestBubbleSort {
-	public void bubbleSort(int nums[]) {
-		if(nums == null || nums.length == 0) {
-			System.out.println("Empty array...");
-		}
-		
-		int temp;
-		int size = nums.length;
-		
-		System.out.println("Before sorting...");
-		for(int num : nums) {
-			System.out.print(num+" ");
-		}
-		
-		System.out.println();
-		
-		for(int i = 0; i<size; i++) {
-			for(int j = 0; j<size-i-1; j++) {
-				if(nums[j] > nums[j+1]) {
-					temp = nums[j];
-					nums[j] = nums[j+1];
-					nums[j+1] = temp;
+	public void bubbleSort(int arr[]) {
+		for(int i = 0; i<arr.length-1; i++) {
+			for(int j = 0; j<arr.length-1-i;j++) {
+				if(arr[j]>arr[j+1]) {
+					int temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
 				}
 			}
 		}
 		
-		System.out.println("After sorting");
-		for(int num : nums) {
-			System.out.print(num+" ");
-		}
+		System.out.println(Arrays.toString(arr));
+		return;
 	}
 }
