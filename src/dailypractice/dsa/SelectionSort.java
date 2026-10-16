@@ -1,4 +1,4 @@
-//05-10-2026 : Aditya Dighe : Selection Sort
+//16-10-2026 : Aditya Dighe : Simplified Selection Sort
 
 package dailypractice.dsa;
 
@@ -8,35 +8,29 @@ public class SelectionSort {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int arr[] = {6,5,2,8,9,4};
-		int size = arr.length;
-		
-		System.out.println("Before sorting : "+Arrays.toString(arr));
-		
+		int arr[] = {7,8,3,1,2};
+
 		TestSelectionSort test = new TestSelectionSort();
-		test.selectionSort(arr,size);
-		
-		System.out.println("After sorting : "+Arrays.toString(arr));
+		test.selectionSort(arr);
 	}
 
 }
 class TestSelectionSort {
-	public void selectionSort(int arr[], int size) {
-		int temp = 0;
-		
-		for(int i = 0; i<size-1; i++) {
-			
-			int minIdx = i;
-			
-			for(int j = i+1; j<size; j++) {
-				if(arr[minIdx] > arr[j]) {
-					minIdx = j;
+	public void selectionSort(int arr[]) {
+
+		for(int i=0; i<arr.length-1; i++) {
+			int smallest = i;
+			for(int j=i+1; j<arr.length; j++) {
+				if(arr[smallest]>arr[j]) {
+					smallest = j;
 				}
 			}
-			temp = arr[minIdx];
-			arr[minIdx] = arr[i];
+			//Swap
+			int temp = arr[smallest];
+			arr[smallest] = arr[i];
 			arr[i] = temp;
 		}
+		System.out.println("Sorted Array is : "+Arrays.toString(arr));
 		return;
-    }
+	}
 }
